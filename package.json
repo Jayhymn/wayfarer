@@ -1,0 +1,35 @@
+{
+  "name": "wayfarer",
+  "version": "1.0.0",
+  "description": "An online bus booking transportation system",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha",
+    "serve": "babel-node app.js --preset @babel/preset-env"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jayhymn/wayfarer.git"
+  },
+  "keywords": [
+    "online",
+    "booking",
+    "wayfarer",
+    "transport",
+    "bus",
+    "transit"
+  ],
+  "author": "ADETUNJI ADEGBITE",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jayhymn/wayfarer/issues"
+  },
+  "homepage": "https://github.com/Jayhymn/wayfarer#readme",
+  "dependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/node": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "express": "^4.17.1"
+  }
+}
