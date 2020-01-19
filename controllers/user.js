@@ -15,14 +15,14 @@ const signup = async (req, res) => {
 
           if (query.rowCount > 0) throw (email_not_found)
 
-          const hash = bcrypt.hash(password, 10)
+          const hash = await bcrypt.hash(password, 10)
           const insert = await dbClient.query(`INSERT INTO users (email, first_name, last_name, password) 
               VALUES ('${email}','${first_name}', '${last_name}','${hash}');
   
                   SELECT id as user_id, is_Admin FROM users WHERE email = '${email}' LIMIT 1`)
                   dbClient.end()
 
-          const { user_id, is_admin } = insert.rows[0]
+          const { user_id, is_admin } = insert[1].rows[0]
           const token = jwt.sign({ user_id, is_admin }, process.env.SECRET_KEY)
           return res.send({ status: 'success', data: { user_id, is_admin, token }, message: 'successfully registered' })
       } catch (err) {
