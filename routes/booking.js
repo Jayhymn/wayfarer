@@ -1,7 +1,7 @@
 import dotenv from 'dotenv'
 import express from 'express'
 import { check } from 'express-validator'
-import booking from '../controllers/bookings'
+import booking from '../controllers/booking'
 
 dotenv.config()
 
