@@ -10,7 +10,7 @@ const signup = async (req, res) => {
       try {
           validationResult(req).throw()
 
-          await dbClient.connect()
+        //   await dbClient.connect()
           const query = await dbClient.query('SELECT * FROM users WHERE email=$1', [email])
 
           if (query.rowCount > 0) throw (email_not_found)
@@ -20,7 +20,7 @@ const signup = async (req, res) => {
               VALUES ('${email}','${first_name}', '${last_name}','${hash}');
   
                   SELECT id as user_id, is_Admin FROM users WHERE email = '${email}' LIMIT 1`)
-                  dbClient.end()
+                //   dbClient.end()
 
           const { user_id, is_admin } = insert[1].rows[0]
           const token = jwt.sign({ user_id, is_admin }, process.env.SECRET_KEY)
@@ -39,10 +39,10 @@ const signin = async (req, res) => {
    try {
     validationResult(req).throw()
 
-    await dbClient.connect()
+    // await dbClient.connect()
 
     const query = await dbClient.query('SELECT id as user_id, is_admin, password as hashed_password FROM users WHERE email=$1 LIMIT 1', [email])
-    dbClient.end()
+    // dbClient.end()
 
     if (query.rowCount < 1) throw (user_not_found)
 

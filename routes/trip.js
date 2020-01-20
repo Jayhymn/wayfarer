@@ -14,5 +14,6 @@ const router = express.Router()
 
 router.post('/trip', validation, trip.create_trip)
 router.get('/trip', trip.get_trips)
+router.patch('/trip/:trip_id', trip.cancel) // cancel trip
 
 module.exports = router

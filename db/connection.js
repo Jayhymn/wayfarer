@@ -11,5 +11,5 @@ const client = new Client({
     port: process.env.DB_PORT,
     database: process.env.DATABASE
 })
-
+client.connect()
 module.exports = client
