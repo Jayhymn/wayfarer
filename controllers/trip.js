@@ -42,7 +42,7 @@ const get_trips = async (req, res) => {
       const { user_id } = jwt.verify(token, process.env.SECRET_KEY)
       if (!user_id) throw (register)
 
-      const trips = await dbClient.query('SELECT * FROM public.trips')
+      const trips = await dbClient.query('SELECT * FROM public.trip')
       dbClient.end()
       res.send({ status: 'success', data: trips.rows })
     } catch (error) {
